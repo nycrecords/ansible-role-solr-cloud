@@ -13,9 +13,9 @@
     regexp: '{{ zk_insh_config.zk_regexp }}'
     line: '{{ zk_insh_config.zk_line }}'
   loop:
-    - zk_regexp: '^ZK_HOST=(.*)'
+    - zk_regexp: '^#ZK_HOST=(.*)'
       zk_line: 'ZK_HOST="{{ zk_hosts | join(",") }}"'
-    - zk_regexp: '^SOLR_HOST=(.*)'
+    - zk_regexp: '^#SOLR_HOST=(.*)'
       zk_line: 'SOLR_HOST="{{ solr_host_naming }}"'
   loop_control:
     loop_var: zk_insh_config
@@ -36,6 +36,7 @@
     removes: '{{ solr_dest_path }}/server/scripts/cloud-scripts/zkcli.sh'
   run_once: True
   changed_when: False
+  become: yes
 
 - name: Set configset list
   find:

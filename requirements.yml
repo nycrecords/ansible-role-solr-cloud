@@ -1,4 +1,10 @@
 ---
-- src: lean_delivery.java
-- src: lean_delivery.zookeeper
-- src: lean_delivery.solr_standalone
+- src: https://github.com/nycrecords/ansible-role-java
+  version: master
+  name: nycrecords.java
+- src: https://github.com/nycrecords/ansible-role-zookeeper
+  version: master
+  name: nycrecords.zookeeper
+- src: https://github.com/nycrecords/ansible-role-solr
+  version: master
+  name: nycrecords.solr
